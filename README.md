@@ -17,6 +17,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - React (written on the 16.13.1 version) [Create React App](https://github.com/facebook/create-react-app)
 - Project Setup (using create-react-app)
   - ESlint
+  - Prettier
 
 ## Setup
 
