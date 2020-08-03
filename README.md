@@ -18,6 +18,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - Project Setup (using create-react-app)
   - ESlint
   - Prettier
+  - Husky & Lint-staged
 
 ## Setup
 
