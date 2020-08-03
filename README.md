@@ -19,6 +19,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
   - ESlint
   - Prettier
   - Husky & Lint-staged
+- Styled Components
 
 ## Setup
 
