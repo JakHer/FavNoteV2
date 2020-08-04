@@ -7,7 +7,7 @@ const Button = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-family: 'Montserrat';
   font-weight: 500;
   text-transform: uppercase;
@@ -18,7 +18,7 @@ const Button = styled.button`
   width: 105px
   height: 30px;
   background: hsl(0, 0%, 90%);
-  font-size: 10px;
+  font-size: 1rem;
   `}
 `;
 
