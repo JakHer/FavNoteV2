@@ -15,9 +15,7 @@
     "react/jsx-filename-extension": [
       0,
       {
-        "extensions": [
-          ".js"
-        ]
+        "extensions": [".js"]
       }
     ],
     "no-console": "off"

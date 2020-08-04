@@ -4,7 +4,5 @@ import Root from 'views/Root/Root';
 
 ReactDOM.render(
   <Root />,
-  document.getElementById(
-    'root',
-  ),
+  document.getElementById('root'),
 );

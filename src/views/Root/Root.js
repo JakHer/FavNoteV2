@@ -3,9 +3,8 @@ import Button from 'components/Button/Button';
 
 const Root = () => (
   <>
-    <Button>
-      Siema
-    </Button>
+    <Button>Close/Save</Button>
+    <Button secondary>Remove</Button>
     <h1>Hello Kuba!</h1>
   </>
 );
