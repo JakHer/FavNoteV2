@@ -21,6 +21,10 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
   - Husky & Lint-staged
 - Styled Components
 - Storybook
+  - Config for project
+  - Global styles for storybook
+  - Knobs
+- Atomic design
 
 ## Setup
 

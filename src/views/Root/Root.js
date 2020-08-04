@@ -1,16 +1,25 @@
 import React from 'react';
-import Button from 'components/Button/Button';
+import { ThemeProvider } from 'styled-components';
+import Button from 'components/atoms/Button/Button';
 import GlobalStyle from 'theme/GlobalStyle';
 
+const theme = {
+  primary: 'black',
+};
+
 const Root = () => (
-  <div>
+  <>
     <GlobalStyle />
-    <Button width="300px">Close/Save</Button>
-    <Button width="500px" secondary>
-      Remove
-    </Button>
-    <h1>Hello Kuba!</h1>
-  </div>
+    <ThemeProvider theme={theme}>
+      <>
+        <Button width="300px">Close/Save</Button>
+        <Button width="500px" secondary>
+          Remove
+        </Button>
+        <h1>Hello Kuba!</h1>
+      </>
+    </ThemeProvider>
+  </>
 );
 
 export default Root;

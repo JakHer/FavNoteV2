@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
   width: ${({ width }) => width || `220px`};
   height: 48px;
-  background: ${({ color }) =>
-    color || `hsl(49, 100%, 58%)`};
+  background: ${({ theme }) => theme.primary};
   cursor: pointer;
   border: none;
   border-radius: 50px;
@@ -22,5 +21,8 @@ const Button = styled.button`
   font-size: 1rem;
   `}
 `;
+
+// ${({ color }) =>
+//     color || `hsl(49, 100%, 58%)`};
 
 export default Button;
