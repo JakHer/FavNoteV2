@@ -25,6 +25,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
   - Global styles for storybook
   - Knobs
 - Atomic design
+- Theme provider
 
 ## Setup
 

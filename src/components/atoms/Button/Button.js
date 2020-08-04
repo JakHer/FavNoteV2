@@ -1,15 +1,16 @@
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-  width: ${({ width }) => width || `220px`};
+  width: 220px;
   height: 48px;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme, color }) =>
+    color || theme.primary};
   cursor: pointer;
   border: none;
   border-radius: 50px;
   font-size: 1.6rem;
   font-family: 'Montserrat';
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.bold};
   text-transform: uppercase;
 
   ${({ secondary }) =>
@@ -17,7 +18,7 @@ const Button = styled.button`
     css`
   width: 105px
   height: 30px;
-  background: hsl(0, 0%, 90%);
+  background: ${({ theme }) => theme.grey200};
   font-size: 1rem;
   `}
 `;
