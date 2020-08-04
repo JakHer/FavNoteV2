@@ -17,7 +17,7 @@ storiesOf('Button', module)
       Tertiary: 'hsl(106, 47%, 64%)',
     };
 
-    const defaultValue = 'hsl(196, 83%, 75%)';
+    const defaultValue = 'hsl(49, 100%, 58%)';
     const groupId = 'GROUP-ID1';
 
     const value = select(
