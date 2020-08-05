@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   background: ${({ theme }) => theme.note};
 `;
 
-storiesOf('ButtonIcon', module)
+storiesOf('Atoms/ButtonIcon', module)
   .addDecorator((story) => (
     <Wrapper>{story()}</Wrapper>
   ))

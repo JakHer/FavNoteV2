@@ -7,7 +7,7 @@ import {
 import Button from 'components/atoms/Button/Button';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Button', module)
+storiesOf('Atoms/Button', module)
   .addDecorator(withKnobs)
   .add('Main', () => {
     const label = 'Colors';

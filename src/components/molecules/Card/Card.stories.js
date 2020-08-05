@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Card from './Card';
 
-storiesOf('Card', module)
+storiesOf('Molecules/Card', module)
   .add('Note', () => <Card cardType="note" />)
   .add('Twitter', () => (
     <Card cardType="twitter" />
