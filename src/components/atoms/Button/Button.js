@@ -16,11 +16,11 @@ const Button = styled.button`
   ${({ secondary }) =>
     secondary &&
     css`
-  width: 105px
-  height: 30px;
-  background: ${({ theme }) => theme.grey200};
-  font-size: 1rem;
-  `}
+      width: 105px;
+      height: 30px;
+      background: ${({ theme }) => theme.grey200};
+      font-size: 1rem;
+    `}
 `;
 
 // ${({ color }) =>
