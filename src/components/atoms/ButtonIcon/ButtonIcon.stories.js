@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 150px;
   height: 150px;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.note};
 `;
 
 storiesOf('ButtonIcon', module)
