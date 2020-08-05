@@ -26,6 +26,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
   - Knobs
 - Atomic design
 - Theme provider
+- React Router
 
 ## Setup
 
