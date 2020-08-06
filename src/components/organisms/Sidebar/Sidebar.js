@@ -77,7 +77,7 @@ const Sidebar = ({ pageType }) => (
     <StyledLinkList>
       <ButtonIcon
         as={NavLink}
-        to="/"
+        to="/notes"
         icon={penIcon}
         activeclass="active"
         exact

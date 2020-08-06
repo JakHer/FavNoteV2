@@ -66,7 +66,7 @@ const StyledLinkButton = styled.a`
   background-size: 50%;
   background-position: 50%;
   position: absolute;
-  top: 20px;
+  top: 40px;
   right: 20px;
 `;
 
