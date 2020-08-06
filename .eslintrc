@@ -4,7 +4,7 @@
     "prettier",
     "prettier/react"
   ],
-
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -12,6 +12,7 @@
   },
 
   "rules": {
+    "react/state-in-constructor": 0,
     "import/prefer-default-export": 0,
     "import/no-unresolved": 1,
     "react/jsx-filename-extension": [

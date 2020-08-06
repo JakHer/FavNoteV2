@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 150px;
   height: 150px;
-  background: ${({ theme }) => theme.note};
+  background: ${({ theme }) => theme.notes};
 `;
 
 storiesOf('Atoms/ButtonIcon', module)

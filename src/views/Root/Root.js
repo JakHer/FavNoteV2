@@ -10,6 +10,7 @@ import Articles from 'views/Articles';
 import Notes from 'views/Notes';
 import Twitters from 'views/Twitters';
 import DetailsPage from 'views/DetailsPage';
+import { routes } from 'routes';
 
 const Root = () => (
   <BrowserRouter>
@@ -17,34 +18,36 @@ const Root = () => (
       <Switch>
         <Route
           exact
-          path="/"
-          render={() => <Redirect to="/notes" />}
+          path={routes.home}
+          render={() => (
+            <Redirect to={routes.notes} />
+          )}
         />
         <Route
           exact
-          path="/notes"
+          path={routes.notes}
           component={Notes}
         />
         <Route
-          path="/notes/:id"
+          path={routes.note}
           component={DetailsPage}
         />
         <Route
           exact
-          path="/twitters"
+          path={routes.twitters}
           component={Twitters}
         />
         <Route
-          path="/twitters/:id"
+          path={routes.twitter}
           component={DetailsPage}
         />
         <Route
           exact
-          path="/articles"
+          path={routes.articles}
           component={Articles}
         />
         <Route
-          path="/articles/:id"
+          path={routes.article}
           component={DetailsPage}
         />
       </Switch>

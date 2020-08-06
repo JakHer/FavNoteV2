@@ -4,7 +4,7 @@ const Button = styled.button`
   width: 220px;
   height: 48px;
   background: ${({ theme, color }) =>
-    color || theme.note};
+    color || theme.notes};
   cursor: pointer;
   border: none;
   border-radius: 50px;

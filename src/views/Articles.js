@@ -38,17 +38,26 @@ const articles = [
 ];
 
 const Articles = () => (
-  <GridTemplate pageType="article">
-    {articles.map((item) => (
-      <Card
-        cardType="article"
-        title={item.title}
-        content={item.content}
-        articleUrl={item.articleUrl}
-        created={item.created}
-        key={item.id}
-      />
-    ))}
+  <GridTemplate pageType="articles">
+    {articles.map(
+      ({
+        title,
+        content,
+        articleUrl,
+        created,
+        id,
+      }) => (
+        <Card
+          cardType="articles"
+          title={title}
+          content={content}
+          articleUrl={articleUrl}
+          created={created}
+          key={id}
+          id={id}
+        />
+      ),
+    )}
   </GridTemplate>
 );
 export default Articles;
