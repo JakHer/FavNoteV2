@@ -1,6 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Sidebar from 'components/organisms/Sidebar/Sidebar';
+import styled from 'styled-components';
+import Heading from 'components/atoms/Heading/Heading';
+import Input from 'components/atoms/Input/Input';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
+
+const StyledPageWrapper = styled.div`
+  padding: 20px;
+`;
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const StyledPageHeader = styled.div`
+  margin: 25px 0 50px 0;
+`;
+
+const StyledHeading = styled(Heading)`
+  margin: 25px 0 0;
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  margin: 0;
+  font-weight: ${({ theme }) => theme.light};
+`;
 
 const UserPageTemplate = ({
   children,
@@ -8,7 +42,16 @@ const UserPageTemplate = ({
 }) => (
   <>
     <Sidebar pageType={pageType} />
-    {children}
+    <StyledPageWrapper>
+      <StyledPageHeader>
+        <Input search placeholder="Search" />
+        <StyledHeading big as="h1">
+          Notes
+        </StyledHeading>
+        <StyledParagraph>6 notes</StyledParagraph>
+      </StyledPageHeader>
+      <GridWrapper>{children}</GridWrapper>
+    </StyledPageWrapper>
   </>
 );
 

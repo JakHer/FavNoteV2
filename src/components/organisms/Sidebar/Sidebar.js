@@ -1,7 +1,5 @@
 import React from 'react';
-import styled, {
-  keyframes,
-} from 'styled-components';
+import styled from 'styled-components';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import bulbIcon from 'assets/icons/bulb.svg';
 import logoutIcon from 'assets/icons/logout.svg';
@@ -10,17 +8,6 @@ import twitterIcon from 'assets/icons/twitter.svg';
 import logoIcon from 'assets/icons/logo.svg';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-const changeBackgroundColor = keyframes`
-from{
-    background-color: rgba(0,0,0, .1);
-}
-
-to {
-  background-color: ${({ theme, activeColor }) =>
-    theme[activeColor]}
-}
-`;
 
 const StyledWrapper = styled.nav`
   position: fixed;
@@ -37,7 +24,13 @@ const StyledWrapper = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  animation: ${changeBackgroundColor} 2s;
+
+  @media (max-width: 1000px) {
+    width: 100vw;
+    height: 100px;
+    z-index: 10000;
+    flex-direction: row;
+  }
 `;
 
 const StyledLogoLink = styled(NavLink)`
@@ -50,16 +43,32 @@ const StyledLogoLink = styled(NavLink)`
   background-size: 75%;
   border: none;
   margin-bottom: 10vh;
+
+  @media (max-width: 1000px) {
+    margin: 0 0 0 10px;
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 const StyledLogoutButton = styled(ButtonIcon)`
   margin-top: auto;
+  @media (max-width: 1000px) {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+  }
 `;
 
 const StyledLinkList = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 const Sidebar = ({ pageType }) => (

@@ -23,6 +23,12 @@ const ButtonIcon = styled.button`
     css`
       background-color: #fff;
     `}
+
+  @media (max-width: 1000px) {
+    width: 35px;
+    height: 35px;
+    margin: 0 20px 0;
+  }
 `;
 
 export default ButtonIcon;

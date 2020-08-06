@@ -21,6 +21,10 @@ body{
     font-family: 'Montserrat', sans-serif;
     padding-left: 150px;
 
+    @media(max-width:1000px){
+        padding-left: 0;
+        padding-top: 100px;
+    }
 }
 `;
 
