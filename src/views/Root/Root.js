@@ -10,8 +10,8 @@ import Notes from 'views/Notes';
 import Twitters from 'views/Twitters';
 
 const Root = () => (
-  <MainTemplate>
-    <BrowserRouter>
+  <BrowserRouter>
+    <MainTemplate>
       <Switch>
         <Route exact path="/" component={Notes} />
         <Route
@@ -23,8 +23,8 @@ const Root = () => (
           component={Articles}
         />
       </Switch>
-    </BrowserRouter>
-  </MainTemplate>
+    </MainTemplate>
+  </BrowserRouter>
 );
 
 export default Root;
