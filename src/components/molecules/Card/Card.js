@@ -6,12 +6,6 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
 import LinkIcon from 'assets/icons/link.svg';
 
-// const CARD_TYPE = {
-//   note: 'NOTE',
-//   twitter: 'TWITTER',
-//   article: 'ARTICLE',
-// };
-
 const Wrapper = styled.div`
   min-height: 380px;
   box-shadow: 0 10px 30px -10px hsla(0, 0%, 0%, 0.1);
@@ -62,40 +56,43 @@ const StyledAvatar = styled.img`
 
 const StyledLinkButton = styled.a`
   display: block;
-  height: 86px;
-  width: 86px;
+  height: 60px;
+  width: 60px;
   border: 5px solid
     ${({ theme }) => theme.article};
   border-radius: 50%;
   background: #fff url(${LinkIcon});
   background-repeat: no-repeat;
-  background-size: 65%;
+  background-size: 50%;
   background-position: 50%;
   position: absolute;
   top: 20px;
   right: 20px;
 `;
 
-const Card = ({ cardType }) => (
+const Card = ({
+  cardType,
+  title,
+  created,
+  twitterName,
+  articleUrl,
+  content,
+}) => (
   <Wrapper>
     <InnerWrapper activeColor={cardType}>
-      <StyledHeading>Siema Kuba</StyledHeading>
-      <DateInfo>3 days ago</DateInfo>
+      <StyledHeading>{title}</StyledHeading>
+      <DateInfo>{created}</DateInfo>
       {cardType === 'twitter' && (
-        <StyledAvatar src="https://twitter-avatar.now.sh/kubahermyt" />
+        <StyledAvatar
+          src={`https://twitter-avatar.now.sh/${twitterName}`}
+        />
       )}
       {cardType === 'article' && (
-        <StyledLinkButton href="https://twitter.com/kubahermyt" />
+        <StyledLinkButton href={articleUrl} />
       )}
     </InnerWrapper>
     <InnerWrapper flex>
-      <Paragraph>
-        Ex do aliqua dolore do esse et consectetur
-        do eu id reprehenderit eiusmod pariatur.
-        Magna excepteur do mollit non. Aliqua sit
-        voluptate ex magna anim proident
-        adipisicing non ipsum occaecat ullamco
-      </Paragraph>
+      <Paragraph>{content}</Paragraph>
       <Button secondary>remove</Button>
     </InnerWrapper>
   </Wrapper>
@@ -107,10 +104,17 @@ Card.propTypes = {
     'twitter',
     'article',
   ]),
+  title: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
+  twitterName: PropTypes.string,
+  articleUrl: PropTypes.string,
+  content: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
   cardType: 'note',
+  twitterName: null,
+  articleUrl: null,
 };
 
 export default Card;
