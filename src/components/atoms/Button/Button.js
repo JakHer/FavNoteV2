@@ -20,6 +20,7 @@ const Button = styled.button`
       height: 30px;
       background: ${({ theme }) => theme.grey200};
       font-size: 1rem;
+      z-index: 1000;
     `}
 `;
 

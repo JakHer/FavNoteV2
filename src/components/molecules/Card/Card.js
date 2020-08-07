@@ -14,6 +14,12 @@ const Wrapper = styled.div`
   overflow: hidden;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
+  cursor: pointer;
+  transition: 0.4s ease box-shadow;
+
+  :hover {
+    box-shadow: 0 10px 30px -10px ${({ theme, activeColor }) => theme[activeColor]};
+  }
 `;
 
 const InnerWrapper = styled.div`
@@ -97,7 +103,10 @@ class Card extends Component {
     }
 
     return (
-      <Wrapper onClick={this.handleCardClick}>
+      <Wrapper
+        activeColor={cardType}
+        onClick={this.handleCardClick}
+      >
         <InnerWrapper activeColor={cardType}>
           <StyledHeading>{title}</StyledHeading>
           <DateInfo>{created}</DateInfo>
@@ -107,7 +116,12 @@ class Card extends Component {
             />
           )}
           {cardType === 'articles' && (
-            <StyledLinkButton href={articleUrl} />
+            <StyledLinkButton
+              target="_blank"
+              rel="noopener noreferrer"
+              href={articleUrl}
+              alt={twitterName}
+            />
           )}
         </InnerWrapper>
         <InnerWrapper flex>

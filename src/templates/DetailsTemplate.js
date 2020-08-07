@@ -47,6 +47,10 @@ const StyledLink = styled.a`
   max-width: 165px;
 `;
 
+const StyledImageLink = styled.a`
+  border: 0;
+`;
+
 const StyledImage = styled.img`
   position: absolute;
   right: -80px;
@@ -92,15 +96,26 @@ const DetailsTemplate = ({
       </StyledHeaderWrapper>
       <Paragraph>{content}</Paragraph>
       {pageType === 'articles' && (
-        <StyledLink href={articleUrl}>
+        <StyledLink
+          href={articleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          alt={title}
+        >
           Open article
         </StyledLink>
       )}
       {pageType === 'twitters' && (
-        <StyledImage
-          src={`https://twitter-avatar.now.sh/${twitterName}`}
+        <StyledImageLink
+          href={`https://twitter.com/${twitterName}`}
           alt={twitterName}
-        />
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <StyledImage
+            src={`https://twitter-avatar.now.sh/${twitterName}`}
+          />
+        </StyledImageLink>
       )}
       <StyledButton
         as={Link}

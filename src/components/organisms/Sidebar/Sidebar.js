@@ -75,24 +75,31 @@ const Sidebar = ({ pageType }) => (
   <StyledWrapper activeColor={pageType}>
     <StyledLogoLink to="/" />
     <StyledLinkList>
-      <ButtonIcon
-        as={NavLink}
-        to="/notes"
-        icon={penIcon}
-        activeclass="active"
-      />
-      <ButtonIcon
-        as={NavLink}
-        to="/twitters"
-        icon={twitterIcon}
-        activeclass="active"
-      />
-      <ButtonIcon
-        as={NavLink}
-        to="/articles"
-        icon={bulbIcon}
-        activeclass="active"
-      />
+      <li>
+        <ButtonIcon
+          as={NavLink}
+          to="/notes"
+          icon={penIcon}
+          activeclass="active"
+        />
+      </li>
+      <li>
+        <ButtonIcon
+          as={NavLink}
+          to="/twitters"
+          icon={twitterIcon}
+          activeclass="active"
+        />
+      </li>
+
+      <li>
+        <ButtonIcon
+          as={NavLink}
+          to="/articles"
+          icon={bulbIcon}
+          activeclass="active"
+        />
+      </li>
     </StyledLinkList>
     <StyledLogoutButton
       as={NavLink}
