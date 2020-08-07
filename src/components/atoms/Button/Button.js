@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
   width: 220px;
   height: 48px;
-  background: ${({ theme, color }) =>
-    color || theme.notes};
+  background-color: ${({ theme, color }) =>
+    theme[color]};
   cursor: pointer;
   border: none;
   border-radius: 50px;
