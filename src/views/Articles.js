@@ -29,8 +29,17 @@ const Articles = ({ articles }) => (
 );
 
 Articles.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.object)
-    .isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      key: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      cardType: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+      articleUrl: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 const mapStateToProps = (state) => {
