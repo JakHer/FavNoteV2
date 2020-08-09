@@ -32,14 +32,16 @@ Twitters.propTypes = {
   twitters: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      key: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      cardType: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,
       twitterName: PropTypes.string.isRequired,
     }),
-  ).isRequired,
+  ),
+};
+
+Twitters.defaultProps = {
+  twitters: [],
 };
 
 const mapStateToProps = (state) => {

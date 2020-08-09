@@ -25,13 +25,15 @@ Notes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      key: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      cardType: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,
     }),
-  ).isRequired,
+  ),
+};
+
+Notes.defaultProps = {
+  notes: [],
 };
 
 const mapStateToProps = (state) => {
