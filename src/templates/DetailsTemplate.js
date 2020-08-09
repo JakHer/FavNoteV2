@@ -69,11 +69,13 @@ const StyledImage = styled.img`
 
 const StyledButton = styled(Button)`
   display: block;
-  padding: 10px 30px;
+  padding: 10px 35px;
   margin-top: 50px;
   height: auto;
   max-width: 165px;
   color: #777;
+  text-decoration: none;
+  color: black;
 `;
 
 const DetailsTemplate = ({

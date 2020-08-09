@@ -27,6 +27,9 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - Atomic design
 - Theme provider
 - React Router
+- Redux
+  - Store
+  - Action creators
 
 ## Setup
 

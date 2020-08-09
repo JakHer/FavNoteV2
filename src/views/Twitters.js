@@ -1,50 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import GridTemplate from 'templates/GridTemplate';
 import Card from 'components/molecules/Card/Card';
+import PropTypes from 'prop-types';
 
-const twitters = [
-  {
-    id: 1,
-    title: 'My Twitter',
-    content: 'Passionate Frontend Developer',
-    twitterName: 'kubahermyt',
-    created: '1 day ago',
-  },
-  {
-    id: 2,
-    title: 'Hello Roman',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-    created: '1 day',
-    twitterName: 'hello_roman',
-  },
-  {
-    id: 3,
-    title: 'Redux guy',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-    created: '1 day',
-    twitterName: 'dan_abramov',
-  },
-  {
-    id: 4,
-    title: 'React router stuff',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-    created: '5 days',
-    twitterName: 'mjackson',
-  },
-  {
-    id: 5,
-    title: 'Super animacje!',
-    content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-    created: '10 days',
-    twitterName: 'sarah_edo',
-  },
-];
-
-const Twitters = () => (
+const Twitters = ({ twitters }) => (
   <GridTemplate pageType="twitters">
     {twitters.map(
       ({
@@ -68,4 +28,14 @@ const Twitters = () => (
   </GridTemplate>
 );
 
-export default Twitters;
+Twitters.propTypes = {
+  twitters: PropTypes.arrayOf(PropTypes.object)
+    .isRequired,
+};
+
+const mapStateToProps = (state) => {
+  const { twitters } = state;
+  return { twitters };
+};
+
+export default connect(mapStateToProps)(Twitters);
