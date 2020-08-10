@@ -121,8 +121,12 @@ const rootReducer = (
       return {
         ...state,
         [action.payload.itemType]: [
-          ...state[action.payload.itemType],
-          action.payload.itemContent,
+          ...state[
+            action.payload.itemType
+          ].filter(
+            (item) =>
+              item.id !== action.payload.id,
+          ),
         ],
       };
     case `ADD_ITEM`:

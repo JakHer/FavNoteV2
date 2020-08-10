@@ -124,7 +124,6 @@ class Card extends Component {
               target="_blank"
               rel="noopener noreferrer"
               href={articleUrl}
-              alt={twitterName}
             />
           )}
         </InnerWrapper>
@@ -161,8 +160,8 @@ Card.propTypes = {
 
 Card.defaultProps = {
   pageContext: 'notes',
-  twitterName: null,
   articleUrl: null,
+  twitterName: `kubahermyt`,
 };
 
 const mapDispatchToProps = (dispatch) => ({

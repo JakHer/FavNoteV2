@@ -97,6 +97,9 @@ class GridTemplate extends Component {
           />
           <NewItemBar
             isVisible={isNewItemBarVisible}
+            handleClose={
+              this.handleItemBarVisibility
+            }
           />
         </StyledPageWrapper>
       </UserPageTemplate>
