@@ -30,7 +30,7 @@ const Twitters = ({ twitters }) => (
 Twitters.propTypes = {
   twitters: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,

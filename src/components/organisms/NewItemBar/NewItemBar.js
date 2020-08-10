@@ -5,6 +5,8 @@ import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
+import { connect } from 'react-redux';
+import { addItem as addItemAction } from 'actions';
 
 const StyledInputTextArea = styled(Input)`
   resize: none;
@@ -51,6 +53,7 @@ const StyledInputLink = styled(Input)`
 const NewItemBar = ({
   pageContext,
   isVisible,
+  addItem,
 }) => (
   <StyledWrapper
     isVisible={isVisible}
@@ -71,7 +74,15 @@ const NewItemBar = ({
       as="textarea"
       placeholder="title"
     />
-    <Button color={pageContext}>
+    <Button
+      onClick={() =>
+        addItem(pageContext, {
+          title: 'Siema Kuba',
+          content: 'lorem ipsum',
+        })
+      }
+      color={pageContext}
+    >
       Add {pageContext}
     </Button>
   </StyledWrapper>
@@ -84,6 +95,7 @@ NewItemBar.propTypes = {
     'articles',
   ]),
   isVisible: PropTypes.bool,
+  addItem: PropTypes.func.isRequired,
 };
 
 NewItemBar.defaultProps = {
@@ -91,4 +103,14 @@ NewItemBar.defaultProps = {
   isVisible: false,
 };
 
-export default withContext(NewItemBar);
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (itemType, itemContent) =>
+    dispatch(
+      addItemAction(itemType, itemContent),
+    ),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withContext(NewItemBar));
