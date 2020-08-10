@@ -30,6 +30,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - Redux
   - Store
   - Action creators
+- Higher Order Component (HOC, SSOT)
 
 ## Setup
 
