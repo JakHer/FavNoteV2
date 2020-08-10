@@ -8,6 +8,7 @@ import twitterIcon from 'assets/icons/twitter.svg';
 import logoIcon from 'assets/icons/logo.svg';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.nav`
   position: fixed;
@@ -71,8 +72,8 @@ const StyledLinkList = styled.ul`
   }
 `;
 
-const Sidebar = ({ pageType }) => (
-  <StyledWrapper activeColor={pageType}>
+const Sidebar = ({ pageContext }) => (
+  <StyledWrapper activeColor={pageContext}>
     <StyledLogoLink to="/" />
     <StyledLinkList>
       <li>
@@ -110,7 +111,7 @@ const Sidebar = ({ pageType }) => (
 );
 
 Sidebar.propTypes = {
-  pageType: PropTypes.oneOf([
+  pageContext: PropTypes.oneOf([
     'notes',
     'twitters',
     'articles',
@@ -118,7 +119,7 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
-  pageType: 'notes',
+  pageContext: 'notes',
 };
 
-export default Sidebar;
+export default withContext(Sidebar);

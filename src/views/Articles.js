@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Articles = ({ articles }) => (
-  <GridTemplate pageType="articles">
+  <GridTemplate>
     {articles.map(
       ({
         title,
@@ -15,7 +15,6 @@ const Articles = ({ articles }) => (
         id,
       }) => (
         <Card
-          cardType="articles"
           title={title}
           content={content}
           articleUrl={articleUrl}

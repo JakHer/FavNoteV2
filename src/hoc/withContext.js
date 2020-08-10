@@ -10,7 +10,7 @@ const withContext = (Component) => {
             /* eslint-disable react/jsx-props-no-spreading */
             {...props}
             /* eslint-enable */
-            context={context}
+            pageContext={context}
           />
         )}
       </PageContext.Consumer>

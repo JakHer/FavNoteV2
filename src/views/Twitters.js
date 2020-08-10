@@ -5,7 +5,7 @@ import Card from 'components/molecules/Card/Card';
 import PropTypes from 'prop-types';
 
 const Twitters = ({ twitters }) => (
-  <GridTemplate pageType="twitters">
+  <GridTemplate>
     {twitters.map(
       ({
         title,
@@ -15,7 +15,6 @@ const Twitters = ({ twitters }) => (
         id,
       }) => (
         <Card
-          cardType="twitters"
           title={title}
           content={content}
           created={created}

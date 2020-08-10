@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Notes = ({ notes }) => (
-  <GridTemplate pageType="notes">
+  <GridTemplate>
     {notes.map(
       ({ title, content, created, id }) => (
         <Card
-          cardType="notes"
           title={title}
           content={content}
           created={created}

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
+import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.div`
   padding: 25px;
@@ -79,14 +80,14 @@ const StyledButton = styled(Button)`
 `;
 
 const DetailsTemplate = ({
-  pageType,
+  pageContext,
   title,
   created,
   content,
   articleUrl,
   twitterName,
 }) => (
-  <UserPageTemplate pageType={pageType}>
+  <UserPageTemplate>
     <StyledWrapper>
       <StyledHeaderWrapper>
         <StyledHeading as="h1">
@@ -97,7 +98,7 @@ const DetailsTemplate = ({
         </StyledParagraph>
       </StyledHeaderWrapper>
       <Paragraph>{content}</Paragraph>
-      {pageType === 'articles' && (
+      {pageContext === 'articles' && (
         <StyledLink
           href={articleUrl}
           target="_blank"
@@ -107,7 +108,7 @@ const DetailsTemplate = ({
           Open article
         </StyledLink>
       )}
-      {pageType === 'twitters' && (
+      {pageContext === 'twitters' && (
         <StyledImageLink
           href={`https://twitter.com/${twitterName}`}
           alt={twitterName}
@@ -121,8 +122,8 @@ const DetailsTemplate = ({
       )}
       <StyledButton
         as={Link}
-        to={`/${pageType}`}
-        color={pageType}
+        to={`/${pageContext}`}
+        color={pageContext}
       >
         save/close
       </StyledButton>
@@ -131,7 +132,11 @@ const DetailsTemplate = ({
 );
 
 DetailsTemplate.propTypes = {
-  pageType: PropTypes.string.isRequired,
+  pageContext: PropTypes.oneOf([
+    'notes',
+    'articles',
+    'twitters',
+  ]).isRequired,
   title: PropTypes.string,
   created: PropTypes.string,
   content: PropTypes.string,
@@ -147,4 +152,4 @@ DetailsTemplate.defaultProps = {
   twitterName: '',
 };
 
-export default DetailsTemplate;
+export default withContext(DetailsTemplate);
