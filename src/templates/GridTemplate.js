@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Heading from 'components/atoms/Heading/Heading';
@@ -55,32 +55,54 @@ const StyledButtonIcon = styled(ButtonIcon)`
   cursor: pointer;
   background-size: 40%;
   z-index: 100000;
+  transition: 0.4s ease transform;
+
+  :hover {
+    transform: rotate(72deg);
+  }
 `;
 
-const GridTemplate = ({
-  children,
-  pageContext,
-}) => (
-  <UserPageTemplate>
-    <StyledPageWrapper>
-      <StyledPageHeader>
-        <Input search placeholder="Search" />
-        <StyledHeading big as="h1">
-          {pageContext}
-        </StyledHeading>
-        <StyledParagraph>
-          6 {pageContext}
-        </StyledParagraph>
-      </StyledPageHeader>
-      <GridWrapper>{children}</GridWrapper>
-      <StyledButtonIcon
-        icon={plusIcon}
-        activeColor={pageContext}
-      />
-      <NewItemBar />
-    </StyledPageWrapper>
-  </UserPageTemplate>
-);
+class GridTemplate extends Component {
+  state = {
+    isNewItemBarVisible: false,
+  };
+
+  handleItemBarVisibility = () => {
+    this.setState((prevState) => ({
+      isNewItemBarVisible: !prevState.isNewItemBarVisible,
+    }));
+  };
+
+  render() {
+    const { pageContext, children } = this.props;
+    const { isNewItemBarVisible } = this.state;
+
+    return (
+      <UserPageTemplate>
+        <StyledPageWrapper>
+          <StyledPageHeader>
+            <Input search placeholder="Search" />
+            <StyledHeading big as="h1">
+              {pageContext}
+            </StyledHeading>
+            <StyledParagraph>
+              6 {pageContext}
+            </StyledParagraph>
+          </StyledPageHeader>
+          <GridWrapper>{children}</GridWrapper>
+          <StyledButtonIcon
+            icon={plusIcon}
+            activeColor={pageContext}
+            onClick={this.handleItemBarVisibility}
+          />
+          <NewItemBar
+            isVisible={isNewItemBarVisible}
+          />
+        </StyledPageWrapper>
+      </UserPageTemplate>
+    );
+  }
+}
 
 GridTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object)

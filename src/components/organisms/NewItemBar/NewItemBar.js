@@ -27,6 +27,16 @@ const StyledWrapper = styled.div`
   border-left: 10px solid
     ${({ theme, activeColor }) =>
       theme[activeColor]};
+  box-shadow: -5px 0 15px
+    ${({ theme, activeColor }) =>
+      theme[activeColor]};
+
+  transition: 0.4s ease transform;
+
+  transform: translateX(
+    ${({ isVisible }) =>
+      isVisible ? `0` : `100%`}
+  );
 
   @media (max-width: 1000px) {
     width: 100vw;
@@ -34,10 +44,29 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const NewItemBar = ({ pageContext }) => (
-  <StyledWrapper activeColor={pageContext}>
+const StyledInputLink = styled(Input)`
+  margin: 30px 0 0;
+`;
+
+const NewItemBar = ({
+  pageContext,
+  isVisible,
+}) => (
+  <StyledWrapper
+    isVisible={isVisible}
+    activeColor={pageContext}
+  >
     <Heading big>Add new {pageContext}</Heading>
-    <Input placeholder="title" />
+    <Input
+      placeholder={
+        pageContext === 'twitters'
+          ? `account name eg. kubahermyt`
+          : `title`
+      }
+    />
+    {pageContext === 'articles' && (
+      <StyledInputLink placeholder="link" />
+    )}
     <StyledInputTextArea
       as="textarea"
       placeholder="title"
@@ -54,10 +83,12 @@ NewItemBar.propTypes = {
     'twitters',
     'articles',
   ]),
+  isVisible: PropTypes.bool,
 };
 
 NewItemBar.defaultProps = {
   pageContext: `notes`,
+  isVisible: false,
 };
 
 export default withContext(NewItemBar);
