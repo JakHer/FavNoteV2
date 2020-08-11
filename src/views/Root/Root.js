@@ -13,12 +13,18 @@ import DetailsPage from 'views/DetailsPage';
 import { routes } from 'routes';
 import { Provider } from 'react-redux';
 import store from 'store';
+import LoginPage from 'views/LoginPage';
 
 const Root = () => (
   <Provider store={store}>
     <BrowserRouter>
       <MainTemplate>
         <Switch>
+          <Route
+            exact
+            path={routes.login}
+            component={LoginPage}
+          />
           <Route
             exact
             path={routes.home}

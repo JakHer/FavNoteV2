@@ -31,6 +31,8 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
   - Store
   - Action creators
 - Higher Order Component (HOC, SSOT)
+- AWS
+- Axios
 
 ## Setup
 
