@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAILURE = 'AUTH__FAILURE';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const ADD_ITEM = 'ADD_ITEM';
+
 export const removeItem = (itemType, id) => {
   return {
     type: `REMOVE_ITEM`,
@@ -29,12 +35,12 @@ export const addItem = (
   };
 };
 
-export const Authenticate = (
+export const authenticate = (
   username,
   password,
 ) => (dispatch) => {
   // AUTHENTICATE_REQUEST
-  dispatch({ type: 'AUTHENTICATE_REQUEST' });
+  dispatch({ type: AUTH_REQUEST });
 
   return axios
     .post(
@@ -47,13 +53,13 @@ export const Authenticate = (
     .then((payload) => {
       console.log(payload);
       dispatch({
-        type: 'AUTHENTICATE_SUCCES',
+        type: AUTH_SUCCESS,
         payload,
       });
     })
     .catch(
       (err) => console.log(err),
-      dispatch({ type: 'AUTHENTICATE_FAILURE' }),
+      dispatch({ type: AUTH_FAILURE }),
     );
 };
 
