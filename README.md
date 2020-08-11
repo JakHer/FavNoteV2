@@ -34,6 +34,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - AWS
 - Axios
 - Redux Thunk
+- Local Storage
 
 ## Setup
 

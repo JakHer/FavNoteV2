@@ -1,24 +1,47 @@
 import React from 'react';
 import DetailsTemplate from 'templates/DetailsTemplate';
+import withContext from 'hoc/withContext';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const dummyArticle = {
-  id: 1,
-  title: 'Wake me up when Vue ends',
-  content:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-  twitterName: 'hello_roman',
-  articleUrl: 'https://youtube.com/helloroman',
-  created: '1 day',
+const DetailsPage = ({ activeItem }) => {
+  const [item] = activeItem;
+  return (
+    <DetailsTemplate
+      title={item.title}
+      created={item.created}
+      content={item.content}
+      twitterName={item.twitterName}
+      articleUrl={item.articleUrl}
+    />
+  );
 };
 
-const DetailsPage = () => (
-  <DetailsTemplate
-    title={dummyArticle.title}
-    created={dummyArticle.created}
-    content={dummyArticle.content}
-    twitterName={dummyArticle.twitterName}
-    articleUrl={dummyArticle.articleUrl}
-  />
-);
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
 
-export default DetailsPage;
+  return {
+    activeItem: state[
+      ownProps.pageContext
+    ].filter(
+      (item) =>
+        item._id === ownProps.match.params.id,
+    ),
+  };
+};
+
+DetailsPage.propTypes = {
+  activeItem: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      created: PropTypes.string,
+      twitterName: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+export default withContext(
+  connect(mapStateToProps)(DetailsPage),
+);

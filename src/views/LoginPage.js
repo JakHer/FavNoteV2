@@ -46,6 +46,10 @@ const LoginPage = ({ authenticate, userID }) => (
     >
       {({ handleChange, handleBlur, values }) => {
         if (userID) {
+          localStorage.setItem(
+            `userID`,
+            `${userID}`,
+          );
           return <Redirect to={routes.home} />;
         }
 

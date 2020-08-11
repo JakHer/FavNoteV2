@@ -7,7 +7,9 @@ import {
   FETCH_SUCCESS,
 } from 'actions';
 
-const initialState = {};
+const initialState = {
+  userID: localStorage.getItem('userID'),
+};
 
 const rootReducer = (
   state = initialState,

@@ -21,15 +21,15 @@ class Twitters extends Component {
             content,
             created,
             twitterName,
-            _id,
+            _id: id,
           }) => (
             <Card
               title={title}
               content={content}
               created={created}
               twitterName={twitterName}
-              key={_id}
-              id={_id}
+              key={id}
+              id={id}
             />
           ),
         )}
