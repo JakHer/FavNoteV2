@@ -150,7 +150,7 @@ Card.propTypes = {
     'articles',
   ]),
   title: PropTypes.string.isRequired,
-  created: PropTypes.string.isRequired,
+  created: PropTypes.string,
   twitterName: PropTypes.string,
   articleUrl: PropTypes.string,
   content: PropTypes.string.isRequired,
@@ -162,6 +162,7 @@ Card.defaultProps = {
   pageContext: 'notes',
   articleUrl: null,
   twitterName: `kubahermyt`,
+  created: '1 day ago',
 };
 
 const mapDispatchToProps = (dispatch) => ({
