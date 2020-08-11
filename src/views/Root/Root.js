@@ -14,6 +14,7 @@ import { routes } from 'routes';
 import { Provider } from 'react-redux';
 import store from 'store';
 import LoginPage from 'views/LoginPage';
+import RegisterPage from 'views/RegisterPage';
 
 const Root = () => (
   <Provider store={store}>
@@ -24,6 +25,11 @@ const Root = () => (
             exact
             path={routes.login}
             component={LoginPage}
+          />
+          <Route
+            exact
+            path={routes.register}
+            component={RegisterPage}
           />
           <Route
             exact

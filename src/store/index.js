@@ -1,12 +1,19 @@
-import { createStore } from 'redux';
-import notesApp from 'reducers';
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+} from 'redux';
+import rootReducer from 'reducers';
+import thunk from 'redux-thunk';
+
+const composeEnhancers =
+  (typeof window !== 'undefined' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 const store = createStore(
-  notesApp,
-  /* eslint-disable no-underscore-dangle */
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__(),
-  /* eslint-enable */
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk)),
 );
 
 export default store;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
+import axios from 'axios';
 import styled from 'styled-components';
 import AuthTemplate from 'templates/AuthTemplate';
 import Heading from 'components/atoms/Heading/Heading';
@@ -7,9 +8,6 @@ import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
-import { connect } from 'react-redux';
-import { Authenticate } from 'actions';
-import PropTypes from 'prop-types';
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -19,7 +17,7 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledInput = styled(Input)`
-  margin: 0 0 30px;
+  margin: 0 0 30px 0;
   height: 40px;
   width: 300px;
 `;
@@ -28,12 +26,12 @@ const StyledLink = styled(Link)`
   display: block;
   font-weight: ${({ theme }) => theme.bold};
   font-size: ${({ theme }) => theme.fontSize.xs};
-  color: #000;
+  color: black;
   text-transform: uppercase;
   margin: 20px 0 50px;
 `;
 
-const LoginPage = ({ authenticate }) => (
+const RegisterPage = () => (
   <AuthTemplate>
     <Formik
       initialValues={{
@@ -41,12 +39,25 @@ const LoginPage = ({ authenticate }) => (
         password: ``,
       }}
       onSubmit={({ username, password }) =>
-        authenticate(username, password)
+        console.log(
+          axios
+            .post(
+              `localhost:9000/api/user/register`,
+              {
+                username,
+                password,
+              },
+            )
+            .then(() =>
+              console.log(`Login succesfull`),
+            )
+            .catch((e) => console.log(e)),
+        )
       }
     >
       {({ handleChange, handleBlur, values }) => (
         <>
-          <Heading>Log in</Heading>
+          <Heading>Sign in</Heading>
           <StyledForm>
             <StyledInput
               autoComplete="off"
@@ -70,8 +81,8 @@ const LoginPage = ({ authenticate }) => (
               sign in
             </Button>
           </StyledForm>
-          <StyledLink to={routes.register}>
-            Create new account
+          <StyledLink to={routes.login}>
+            I have account, let me login
           </StyledLink>
         </>
       )}
@@ -79,16 +90,4 @@ const LoginPage = ({ authenticate }) => (
   </AuthTemplate>
 );
 
-LoginPage.propTypes = {
-  authenticate: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  authenticate: (username, password) =>
-    dispatch(Authenticate(username, password)),
-});
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(LoginPage);
+export default RegisterPage;

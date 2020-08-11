@@ -33,6 +33,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - Higher Order Component (HOC, SSOT)
 - AWS
 - Axios
+- Redux Thunk
 
 ## Setup
 
