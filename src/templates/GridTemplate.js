@@ -11,8 +11,12 @@ import plusIcon from 'assets/icons/plus.svg';
 import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
 
 const StyledPageWrapper = styled.div`
-  padding: 20px;
+  padding: 25px 70px 25px 160px;
   position: relative;
+
+  @media (max-width: 1000px) {
+    padding: 100px 10px 50px;
+  }
 `;
 
 const GridWrapper = styled.div`

@@ -1,11 +1,6 @@
-import {
-  createGlobalStyle,
-  css,
-} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-
-
 
 html {
     box-sizing: border-box;
@@ -22,24 +17,11 @@ html {
 body{
     font-size: 1.6rem;
     font-family: 'Montserrat', sans-serif;
-    padding-left: 150px;
-
-    @media(max-width:1000px){
-        padding-left: 0;
-        padding-top: 100px;
-    }
-
-    ${({ loginPage }) =>
-      loginPage &&
-      css`
-        padding: 0;
-        margin: 0;
-
-        @media (max-width: 1000px) {
-          padding-top: 0;
-        }
-      `}
+    margin: 0;
+    padding: 0;
 }
+
+
 `;
 
 export default GlobalStyle;

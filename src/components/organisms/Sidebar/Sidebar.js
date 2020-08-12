@@ -25,6 +25,7 @@ const StyledWrapper = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  z-index: 10000;
 
   @media (max-width: 1000px) {
     width: 100vw;

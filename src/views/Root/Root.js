@@ -25,11 +25,13 @@ const Root = () => (
             exact
             path={routes.login}
             component={LoginPage}
+            loginPage
           />
           <Route
             exact
             path={routes.register}
             component={RegisterPage}
+            loginPage
           />
           <Route
             exact
