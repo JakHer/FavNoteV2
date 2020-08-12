@@ -46,7 +46,7 @@ class MainTemplate extends Component {
     return (
       <>
         <PageContext.Provider value={pageType}>
-          <GlobalStyle />
+          <GlobalStyle loginPage />
           <ThemeProvider theme={theme}>
             {children}
           </ThemeProvider>

@@ -1,4 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import {
+  createGlobalStyle,
+  css,
+} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -25,6 +28,17 @@ body{
         padding-left: 0;
         padding-top: 100px;
     }
+
+    ${({ loginPage }) =>
+      loginPage &&
+      css`
+        padding: 0;
+        margin: 0;
+
+        @media (max-width: 1000px) {
+          padding-top: 0;
+        }
+      `}
 }
 `;
 

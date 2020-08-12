@@ -47,7 +47,7 @@ export const authenticate = (
 
   return axios
     .post(
-      `http://localhost:9000/api/user/login`,
+      `https://fav-note-2.herokuapp.com/api/user/login`,
       {
         username,
         password,
@@ -76,12 +76,15 @@ export const fetchItems = (itemType) => (
   });
 
   return axios
-    .get(`http://localhost:9000/api/notes/type`, {
-      params: {
-        userID: getState().userID,
-        type: itemType,
+    .get(
+      `https://fav-note-2.herokuapp.com/api/notes/type`,
+      {
+        params: {
+          userID: getState().userID,
+          type: itemType,
+        },
       },
-    })
+    )
     .then(({ data }) => {
       console.log(data);
       dispatch({
