@@ -9,7 +9,7 @@ import Button from 'components/atoms/Button/Button';
 import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.div`
-  padding: 25px;
+  margin: 120px 25px 50px;
   max-width: 50vw;
   position: relative;
 
