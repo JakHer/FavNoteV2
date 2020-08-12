@@ -19,9 +19,9 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledInput = styled(Input)`
-  margin: 0 0 30px;
+  margin: 0 30px 30px;
   height: 40px;
-  width: 300px;
+  max-width: 300px;
 `;
 
 const StyledLink = styled(Link)`
@@ -34,7 +34,7 @@ const StyledLink = styled(Link)`
 `;
 
 const LoginPage = ({ authenticate, userID }) => (
-  <AuthTemplate loginPage>
+  <AuthTemplate>
     <Formik
       initialValues={{
         username: ``,

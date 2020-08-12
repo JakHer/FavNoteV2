@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 100px;
 `;
 
 const StyledLogo = styled.img`
@@ -20,8 +21,8 @@ const StyledLogo = styled.img`
 `;
 
 const StyledAuthCard = styled.div`
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
@@ -31,12 +32,16 @@ const StyledAuthCard = styled.div`
   justify-content: center;
 `;
 
+const StyledHeading = styled(Heading)`
+  max-width: 250px;
+`;
+
 const AuthTemplate = ({ children }) => (
   <StyledWrapper>
     <StyledLogo src={logoImg} />
-    <Heading>
+    <StyledHeading>
       Your new favourite notes app
-    </Heading>
+    </StyledHeading>
     <StyledAuthCard>{children}</StyledAuthCard>
   </StyledWrapper>
 );
