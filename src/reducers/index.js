@@ -1,10 +1,10 @@
 import {
   ADD_ITEM,
-  REMOVE_ITEM,
   // AUTH_REQUEST,
   AUTH_SUCCESS,
   // AUTH_FAILURE,
   FETCH_SUCCESS,
+  REMOVE_ITEM_SUCCESS,
 } from 'actions';
 
 const initialState = {
@@ -28,7 +28,7 @@ const rootReducer = (
           ...action.payload.data,
         ],
       };
-    case REMOVE_ITEM:
+    case REMOVE_ITEM_SUCCESS:
       return {
         ...state,
         [action.payload.itemType]: [
@@ -36,7 +36,7 @@ const rootReducer = (
             action.payload.itemType
           ].filter(
             (item) =>
-              item.id !== action.payload.id,
+              item._id !== action.payload.id,
           ),
         ],
       };

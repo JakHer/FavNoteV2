@@ -17,7 +17,6 @@ const Wrapper = styled.div`
   overflow: hidden;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
-  cursor: pointer;
   transition: 0.4s ease box-shadow;
 
   :hover {
@@ -30,6 +29,7 @@ const InnerWrapper = styled.div`
   padding: 17px 30px;
   :first-of-type {
     z-index: 99;
+    cursor: pointer;
   }
   background-color: ${({ theme, activeColor }) =>
     activeColor ? theme[activeColor] : '#fff'};
@@ -107,11 +107,11 @@ class Card extends Component {
     }
 
     return (
-      <Wrapper
-        activeColor={pageContext}
-        onClick={this.handleCardClick}
-      >
-        <InnerWrapper activeColor={pageContext}>
+      <Wrapper activeColor={pageContext}>
+        <InnerWrapper
+          onClick={this.handleCardClick}
+          activeColor={pageContext}
+        >
           <StyledHeading>{title}</StyledHeading>
           <DateInfo>{created}</DateInfo>
           {pageContext === 'twitters' && (
