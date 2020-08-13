@@ -9,12 +9,13 @@ import Button from 'components/atoms/Button/Button';
 import withContext from 'hoc/withContext';
 
 const StyledWrapper = styled.div`
-  margin: 120px 25px 50px;
   max-width: 50vw;
   position: relative;
+  margin: 60px 160px 50px;
 
   @media (max-width: 1000px) {
     max-width: 90vw;
+    margin: 120px 25px 50px;
   }
 `;
 
