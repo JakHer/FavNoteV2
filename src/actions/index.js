@@ -26,10 +26,10 @@ export const removeItem = (itemType, id) => (
   dispatch,
 ) => {
   dispatch({ type: REMOVE_ITEM_REQUEST });
-  console.log(itemType);
-  axios.delete(
-    `https://fav-note-2.herokuapp.com/api/note/${id}`,
-  )``
+  axios
+    .delete(
+      `https://fav-note-2.herokuapp.com/api/note/${id}`,
+    )
     .then(() => {
       dispatch({
         type: REMOVE_ITEM_SUCCESS,

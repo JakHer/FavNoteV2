@@ -34,7 +34,9 @@ const rootReducer = (
             action.payload.itemType
           ].filter(
             (item) =>
+              /* eslint no-underscore-dangle: 0 */
               item._id !== action.payload.id,
+            /* eslint-enable */
           ),
         ],
       };

@@ -86,6 +86,7 @@ const NewItemBar = ({
             type="text"
             name="title"
             placeholder="title"
+            required
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.title}
@@ -95,6 +96,7 @@ const NewItemBar = ({
               type="text"
               name="twitterName"
               placeholder="account name eg. kubahermyt"
+              required
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.twitterName}
@@ -105,6 +107,7 @@ const NewItemBar = ({
               type="text"
               name="articleUrl"
               placeholder="articleUrl"
+              required
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.articleUrl}
@@ -114,6 +117,7 @@ const NewItemBar = ({
             name="content"
             as="textarea"
             placeholder="description"
+            required
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.content}

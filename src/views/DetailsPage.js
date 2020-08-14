@@ -60,7 +60,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
       item: state[ownProps.pageContext].filter(
         (item) =>
+          /* eslint no-underscore-dangle: 0 */
           item._id === ownProps.match.params.id,
+        /* eslint-enable */
       ),
     };
   }
