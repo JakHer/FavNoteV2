@@ -1,10 +1,8 @@
 import {
-  ADD_ITEM,
-  // AUTH_REQUEST,
   AUTH_SUCCESS,
-  // AUTH_FAILURE,
   FETCH_SUCCESS,
   REMOVE_ITEM_SUCCESS,
+  ADD_ITEM_SUCCESS,
 } from 'actions';
 
 const initialState = {
@@ -40,12 +38,12 @@ const rootReducer = (
           ),
         ],
       };
-    case ADD_ITEM:
+    case ADD_ITEM_SUCCESS:
       return {
         ...state,
         [action.payload.itemType]: [
           ...state[action.payload.itemType],
-          action.payload.item,
+          action.payload.data,
         ],
       };
     default:

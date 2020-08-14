@@ -11,7 +11,12 @@ export const REMOVE_ITEM_SUCCESS =
 export const REMOVE_ITEM_FAILURE =
   'REMOVE_ITEM_FAILURE';
 
-export const ADD_ITEM = 'ADD_ITEM';
+export const ADD_ITEM_REQUEST =
+  'ADD_ITEM_REQUEST';
+export const ADD_ITEM_SUCCESS =
+  'ADD_ITEM_SUCCESS';
+export const ADD_ITEM_FAILURE =
+  'ADD_ITEM_FAILURE';
 
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -22,10 +27,9 @@ export const removeItem = (itemType, id) => (
 ) => {
   dispatch({ type: REMOVE_ITEM_REQUEST });
   console.log(itemType);
-  axios
-    .delete(
-      `https://fav-note-2.herokuapp.com/api/note/${id}`,
-    )
+  axios.delete(
+    `https://fav-note-2.herokuapp.com/api/note/${id}`,
+  )``
     .then(() => {
       dispatch({
         type: REMOVE_ITEM_SUCCESS,
@@ -44,20 +48,31 @@ export const removeItem = (itemType, id) => (
 export const addItem = (
   itemType,
   itemContent,
-) => {
-  const getId = () =>
-    `_${Math.random().toString(36).substr(2, 9)}`;
+) => (dispatch, getState) => {
+  dispatch({ type: ADD_ITEM_REQUEST });
 
-  return {
-    type: `ADD_ITEM`,
-    payload: {
-      itemType,
-      item: {
-        id: getId(),
+  return axios
+    .post(
+      `https://fav-note-2.herokuapp.com/api/note`,
+      {
+        userID: getState().userID,
+        type: itemType,
         ...itemContent,
       },
-    },
-  };
+    )
+    .then(({ data }) => {
+      dispatch({
+        type: ADD_ITEM_SUCCESS,
+        payload: {
+          itemType,
+          data,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: ADD_ITEM_FAILURE });
+    });
 };
 
 export const authenticate = (
