@@ -2,7 +2,11 @@ import axios from 'axios';
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const AUTH_FAILURE = 'AUTH__FAILURE';
+export const AUTH_FAILURE = 'AUTH_FAILURE';
+
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
 export const REMOVE_ITEM_REQUEST =
   'REMOVE_ITEM_REQUEST';
@@ -73,6 +77,13 @@ export const addItem = (
       console.log(err);
       dispatch({ type: ADD_ITEM_FAILURE });
     });
+};
+
+export const logout = () => (dispatch) => {
+  console.log('WYLOGOWANO');
+  dispatch({
+    type: LOGOUT_SUCCESS,
+  });
 };
 
 export const authenticate = (

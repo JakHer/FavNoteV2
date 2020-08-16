@@ -3,10 +3,13 @@ import {
   FETCH_SUCCESS,
   REMOVE_ITEM_SUCCESS,
   ADD_ITEM_SUCCESS,
+  LOGOUT_SUCCESS,
 } from 'actions';
 
 const initialState = {
-  userID: localStorage.getItem('userID'),
+  userID: ``,
+  // localStorage.getItem('userID'),
+  loggedIn: false,
 };
 
 const rootReducer = (
@@ -18,6 +21,13 @@ const rootReducer = (
       return {
         ...state,
         userID: action.payload.data._id,
+        loggedIn: true,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        userID: '',
+        loggedIn: false,
       };
     case FETCH_SUCCESS:
       return {

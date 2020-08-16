@@ -45,10 +45,11 @@ const LoginPage = ({ authenticate, userID }) => (
       }
     >
       {({ handleChange, handleBlur, values }) => {
+        localStorage.clear();
         if (userID) {
           localStorage.setItem(
             `userID`,
-            `${userID}`,
+            `${userID} USER`,
           );
           return <Redirect to={routes.home} />;
         }
@@ -98,8 +99,12 @@ LoginPage.defaultProps = {
   userID: '',
 };
 
-const mapStateToProps = ({ userID = null }) => ({
+const mapStateToProps = ({
+  userID = null,
+  loggedIn = false,
+}) => ({
   userID,
+  loggedIn,
 });
 
 const mapDispatchToProps = (dispatch) => ({
