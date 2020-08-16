@@ -35,6 +35,7 @@ Continue to acquire knowledge about React. Learning a lot of new packages and so
 - Axios
 - Redux Thunk
 - Local Storage
+- JEST/ React testing library
 
 ## Setup
 

@@ -110,7 +110,7 @@ const Sidebar = ({ pageContext, logout }) => (
     <StyledLogoutButton
       as={NavLink}
       icon={logoutIcon}
-      onClick={() => logout()}
+      onClick={logout}
       to={routes.login}
     />
   </StyledWrapper>

@@ -7,8 +7,7 @@ import {
 } from 'actions';
 
 const initialState = {
-  userID: ``,
-  // localStorage.getItem('userID'),
+  userID: localStorage.getItem(`userID`),
   loggedIn: false,
 };
 
