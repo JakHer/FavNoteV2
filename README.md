@@ -8,7 +8,9 @@
 
 [Website](https://favnotes2.netlify.app/)
 
-### Go ahead and login using credentials - login: user1 | password1
+### Go ahead and login using credentials
+
+## login: user1 | password1
 
 ## What I have learned from this app
 
