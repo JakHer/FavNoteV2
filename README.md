@@ -1,6 +1,14 @@
-# React in practice
+# FavNote 2 - React in practice
 
 > Using more advanced technologies
+
+![Image of Application](https://raw.githubusercontent.com/JakHer/FavNote/master/src/assets/images/siteScreenshoot.png)
+
+## Live
+
+[Website](https://favnotes2.netlify.app/)
+
+### Go ahead and login using credentials - login: user1 | password1
 
 ## What I have learned from this app
 
