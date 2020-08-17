@@ -6,6 +6,7 @@ import AuthTemplate from 'templates/AuthTemplate';
 import Heading from 'components/atoms/Heading/Heading';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import { Link } from 'react-router-dom';
 import { routes } from 'routes';
 
@@ -17,9 +18,9 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledInput = styled(Input)`
-  margin: 0 0 30px 0;
+  margin: 0 30px 30px;
   height: 40px;
-  width: 300px;
+  max-width: 300px;
 `;
 
 const StyledLink = styled(Link)`
@@ -58,6 +59,9 @@ const RegisterPage = () => (
       {({ handleChange, handleBlur, values }) => (
         <>
           <Heading>Sign in</Heading>
+          <Paragraph>
+            Option currently diabled
+          </Paragraph>
           <StyledForm>
             <StyledInput
               autoComplete="off"
@@ -77,7 +81,11 @@ const RegisterPage = () => (
               onBlur={handleBlur}
               value={values.title}
             />
-            <Button color="notes" type="submit">
+            <Button
+              disabled
+              color="notes"
+              type="submit"
+            >
               sign in
             </Button>
           </StyledForm>

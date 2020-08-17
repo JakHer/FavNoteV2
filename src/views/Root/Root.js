@@ -15,9 +15,13 @@ import { Provider } from 'react-redux';
 import store from 'store';
 import LoginPage from 'views/LoginPage';
 import RegisterPage from 'views/RegisterPage';
+import PrivateRoute from 'routes/PrivateRoute';
+import { createBrowserHistory } from 'history';
+
+export const history = createBrowserHistory();
 
 const Root = () => (
-  <Provider store={store}>
+  <Provider history={history} store={store}>
     <BrowserRouter>
       <MainTemplate>
         <Switch>
@@ -33,37 +37,37 @@ const Root = () => (
             component={RegisterPage}
             loginPage
           />
-          <Route
+          <PrivateRoute
             exact
             path={routes.home}
             render={() => (
               <Redirect to={routes.notes} />
             )}
           />
-          <Route
+          <PrivateRoute
             exact
             path={routes.notes}
             component={Notes}
           />
-          <Route
+          <PrivateRoute
             path={routes.note}
             component={DetailsPage}
           />
-          <Route
+          <PrivateRoute
             exact
             path={routes.twitters}
             component={Twitters}
           />
-          <Route
+          <PrivateRoute
             path={routes.twitter}
             component={DetailsPage}
           />
-          <Route
+          <PrivateRoute
             exact
             path={routes.articles}
             component={Articles}
           />
-          <Route
+          <PrivateRoute
             path={routes.article}
             component={DetailsPage}
           />

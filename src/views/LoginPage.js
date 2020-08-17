@@ -33,7 +33,11 @@ const StyledLink = styled(Link)`
   margin: 20px 0 50px;
 `;
 
-const LoginPage = ({ authenticate, userID }) => (
+const LoginPage = ({
+  authenticate,
+  userID,
+  loggedIn,
+}) => (
   <AuthTemplate>
     <Formik
       initialValues={{
@@ -46,12 +50,12 @@ const LoginPage = ({ authenticate, userID }) => (
     >
       {({ handleChange, handleBlur, values }) => {
         localStorage.clear();
-        if (userID) {
+        if (loggedIn) {
           localStorage.setItem(
             `userID`,
             `${userID}`,
           );
-          return <Redirect to={routes.home} />;
+          return <Redirect to={routes.notes} />;
         }
 
         return (
@@ -93,6 +97,7 @@ const LoginPage = ({ authenticate, userID }) => (
 LoginPage.propTypes = {
   authenticate: PropTypes.func.isRequired,
   userID: PropTypes.string,
+  loggedIn: PropTypes.bool.isRequired,
 };
 
 LoginPage.defaultProps = {
