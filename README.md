@@ -10,7 +10,7 @@
 
 ### Go ahead and login using credentials
 
-login: user1 /n
+login: user1 <br />
 password: password1
 
 ## What I have learned from this app
