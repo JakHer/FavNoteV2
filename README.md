@@ -2,7 +2,7 @@
 
 > Using more advanced technologies
 
-![Image of Application](https://raw.githubusercontent.com/JakHer/FavNote/master/src/assets/images/siteScreenshoot.png)
+![Image of Application](https://raw.githubusercontent.com/JakHer/FavNoteV2/master/src/assets/SiteScreenshoot.png)
 
 ## Live
 
