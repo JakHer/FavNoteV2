@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Formik, Form } from 'formik';
 import styled from 'styled-components';
 import AuthTemplate from 'templates/AuthTemplate';
@@ -38,8 +40,10 @@ const StyledLink = styled(Link)`
 const StyledErrorMessage = styled.p`
   position: absolute;
   position: absolute;
-  bottom: 70%; /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
+  bottom: 70%;
+  left: 50%;
+
+  font-size: ${({ theme }) => theme.fontSize.xs};
 
   transform: translate(-50%, -50%);
   display: block;
@@ -53,24 +57,32 @@ const StyledInputWrapper = styled.div`
 `;
 
 const StyledHeading = styled(Heading)`
+  display: block;
   margin-bottom: 40px;
+  max-width: 200px;
+  text-align: center;
+`;
+
+const StyledErrorModal = styled(StyledHeading)`
+  color: red;
 `;
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
     .min(5, 'user1')
     .max(5, 'Too Long!')
-    .required('required'),
+    .required('Login is Required'),
   password: Yup.string()
     .min(9, 'password1')
     .max(9, 'Too Long!')
-    .required('required'),
+    .required('Password is Required'),
 });
 
 const LoginPage = ({
   authenticate,
   userID,
   loggedIn,
+  error,
 }) => (
   <AuthTemplate>
     <Formik
@@ -88,6 +100,7 @@ const LoginPage = ({
         handleBlur,
         values,
         errors,
+        isSubmitting,
       }) => {
         localStorage.clear();
         if (loggedIn) {
@@ -100,7 +113,16 @@ const LoginPage = ({
 
         return (
           <>
-            <StyledHeading>Log in</StyledHeading>
+            {error ? (
+              <StyledErrorModal>
+                {error}
+              </StyledErrorModal>
+            ) : (
+              <StyledHeading>
+                Log in
+              </StyledHeading>
+            )}
+
             <StyledForm>
               <StyledInputWrapper>
                 <StyledInput
@@ -136,9 +158,19 @@ const LoginPage = ({
                   </StyledErrorMessage>
                 ) : null}
               </StyledInputWrapper>
-
-              <Button color="notes" type="submit">
-                sign in
+              <Button
+                color="notes"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    spin
+                  />
+                ) : (
+                  `sign in`
+                )}
               </Button>
             </StyledForm>
             <StyledLink to={routes.register}>
@@ -155,24 +187,32 @@ LoginPage.propTypes = {
   authenticate: PropTypes.func.isRequired,
   userID: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
+  error: PropTypes.string,
 };
 
 LoginPage.defaultProps = {
   userID: '',
+  error: null,
 };
 
 const mapStateToProps = ({
   userID = null,
   loggedIn = false,
+  error = null,
 }) => ({
   userID,
   loggedIn,
+  error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticate: (username, password) =>
+  authenticate: (username, password, error) =>
     dispatch(
-      authenticateAction(username, password),
+      authenticateAction(
+        username,
+        password,
+        error,
+      ),
     ),
 });
 

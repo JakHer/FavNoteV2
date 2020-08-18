@@ -4,6 +4,7 @@ import {
   REMOVE_ITEM_SUCCESS,
   ADD_ITEM_SUCCESS,
   LOGOUT_SUCCESS,
+  AUTH_FAILURE,
 } from 'actions';
 
 const initialState = {
@@ -21,6 +22,12 @@ const rootReducer = (
         ...state,
         userID: action.payload.data._id,
         loggedIn: true,
+      };
+    case AUTH_FAILURE:
+      return {
+        ...state,
+        error: action.error.message,
+        loggedIn: false,
       };
     case LOGOUT_SUCCESS:
       return {

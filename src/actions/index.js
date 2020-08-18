@@ -108,10 +108,13 @@ export const authenticate = (
         payload,
       });
     })
-    .catch(
-      (err) => console.log(err),
-      dispatch({ type: AUTH_FAILURE }),
-    );
+    .catch((error, payload) => {
+      dispatch({
+        type: AUTH_FAILURE,
+        error,
+        payload,
+      });
+    });
 };
 
 export const fetchItems = (itemType) => (
