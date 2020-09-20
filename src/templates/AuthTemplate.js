@@ -39,9 +39,7 @@ const StyledHeading = styled(Heading)`
 const AuthTemplate = ({ children }) => (
   <StyledWrapper>
     <StyledLogo src={logoImg} />
-    <StyledHeading>
-      Your new favourite notes app
-    </StyledHeading>
+    <StyledHeading>Fav Notes App</StyledHeading>
     <StyledAuthCard>{children}</StyledAuthCard>
   </StyledWrapper>
 );
